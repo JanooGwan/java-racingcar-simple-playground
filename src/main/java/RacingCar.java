@@ -28,7 +28,7 @@ public class RacingCar implements Moveable {
         return false;
     }
 
-    private boolean judgeMoving(int n) { /// 테스트용 메소드
+    public boolean judgeMoving(int n) { /// 테스트용 메소드
         if(n >= 4) return true;
         return false;
     }
