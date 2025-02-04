@@ -14,12 +14,30 @@ public class RacingCar implements Moveable {
         if(judgeMoving()) ++location;
     };
 
-    private boolean judgeMoving() {
-        Random random = new Random();
-        int randNum = random.nextInt(10);
+    public void move(int n) { // 테스트용 메소드
+        if(judgeMoving(n)) ++location;
+    };
 
-        if(randNum >= 4) return true;
+    private int makeRandNum() {
+        Random random = new Random();
+        return random.nextInt(10);
+    }
+
+    private boolean judgeMoving() {
+        if(makeRandNum() >= 4) return true;
         return false;
     }
 
+    private boolean judgeMoving(int n) { /// 테스트용 메소드
+        if(n >= 4) return true;
+        return false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
 }
