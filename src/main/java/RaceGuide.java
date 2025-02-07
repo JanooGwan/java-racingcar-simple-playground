@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class RaceGuide {
     Scanner sc = new Scanner(System.in);
 
-    public void getInfo() {
-        RaceInfo ri = new RaceInfo(getCars(), getTryNum());
+    public RaceInfo getInfo() {
+        return new RaceInfo(getCars(), getTryNum());
     }
 
     private List<RacingCar> getCars() {

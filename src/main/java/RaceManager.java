@@ -4,10 +4,16 @@ import java.lang.Math;
 
 public class RaceManager {
     List<RacingCar> raceMembers = new ArrayList<>();
+    int tryNum;
 
     public void readyRace() {
         RaceGuide rg = new RaceGuide();
-        rg.getInfo();
+        RaceInfo ri = rg.getInfo(); // 레이스 가이드한테 레이스 정보(참가자, 시도 횟수)를 받아오는 것을 명령함
+
+        raceMembers = ri.getCars();
+        tryNum = ri.getTryNum();
+
+        raceStart();
     }
 
     public void joinRacingCar(String carName) {
@@ -19,7 +25,7 @@ public class RaceManager {
     }
 
     public void raceStart() {
-        progressRacing(raceMembers.size());
+        progressRacing();
     }
 
     private void progressRacing(int moveNum) {
