@@ -9,8 +9,8 @@ public class RaceManager {
         raceMembers.add(new RacingCar(carName));
     }
 
-    public void raceStart(int moveNum) {
-        progressRacing(moveNum);
+    public void raceStart() {
+        progressRacing(raceMembers.size());
     }
 
     private void progressRacing(int moveNum) {
