@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RacingCar implements Moveable {
+public class RacingCar {
     String name;
     int location;
 
