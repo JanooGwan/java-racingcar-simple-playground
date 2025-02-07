@@ -11,9 +11,8 @@ public class RaceGuide {
 
     private List<RacingCar> getCars() {
         System.out.println("경주할 자동차 이름을 입력해주세요.");
-        System.out.println("쉼표(,)로 구분해서 입력해주세요.");
-        System.out.println("ex) neo,brie,brown");
-        System.out.println("입력 : ");
+        System.out.println("쉼표(,)로 구분해서 입력해주세요. ex) neo,brie,brown");
+        System.out.print("입력 : ");
 
         return elaborateString(sc.nextLine());
     }
@@ -28,7 +27,7 @@ public class RaceGuide {
     private int getTryNum() {
         sc.nextLine();
         System.out.println("시도할 횟수를 입력해주세요.");
-        System.out.println("입력 : ");
+        System.out.print("입력 : ");
 
         return sc.nextInt();
     }
