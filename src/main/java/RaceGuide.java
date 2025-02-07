@@ -14,10 +14,10 @@ public class RaceGuide {
         System.out.println("쉼표(,)로 구분해서 입력해주세요.");
         System.out.println("ex) neo,brie,brown\n");
         System.out.println("입력 : ");
-        sc.nextLine();
+        elaborateString(sc.nextLine());
     }
 
-    private void elaborateString() {
+    private void elaborateString(String str) {
 
     }
 
