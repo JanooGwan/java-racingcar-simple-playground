@@ -5,8 +5,17 @@ import java.lang.Math;
 public class RaceManager {
     List<RacingCar> raceMembers = new ArrayList<>();
 
+    public void readyRace() {
+        RaceGuide rg = new RaceGuide();
+        rg.getInfo();
+    }
+
     public void joinRacingCar(String carName) {
         raceMembers.add(new RacingCar(carName));
+    }
+
+    public void joinRacingCar(List<RacingCar> cars) {
+        raceMembers = cars;
     }
 
     public void raceStart() {
