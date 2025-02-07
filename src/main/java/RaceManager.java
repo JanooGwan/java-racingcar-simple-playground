@@ -6,31 +6,24 @@ public class RaceManager {
     List<RacingCar> raceMembers = new ArrayList<>();
     int tryNum;
 
+    RaceGuide rg = new RaceGuide(); // 레이스 매니저는 레이스 가이드한테 명령할 수 있음
+
     public void readyRace() {
-        RaceGuide rg = new RaceGuide();
         RaceInfo ri = rg.getInfo(); // 레이스 가이드한테 레이스 정보(참가자, 시도 횟수)를 받아오는 것을 명령함
 
         raceMembers = ri.getCars();
         tryNum = ri.getTryNum();
 
-        raceStart();
-    }
-
-    public void joinRacingCar(String carName) {
-        raceMembers.add(new RacingCar(carName));
-    }
-
-    public void joinRacingCar(List<RacingCar> cars) {
-        raceMembers = cars;
-    }
-
-    public void raceStart() {
         progressRacing();
+        rg.printWinners(findWinners());
     }
 
-    private void progressRacing(int moveNum) {
-        for(int i = 0; i < moveNum; ++i) {
+
+    private void progressRacing() {
+        for(int i = 1; i <= tryNum; ++i) {
             for(var car : raceMembers) car.move();
+
+            rg.printRaceStatus(raceMembers, i);
         }
     }
 
@@ -53,5 +46,13 @@ public class RaceManager {
         }
 
         return maxLocation;
+    }
+
+    public void joinRacingCar(String carName) { // 테스트용
+        raceMembers.add(new RacingCar(carName));
+    }
+
+    public void joinRacingCar(List<RacingCar> cars) { // 테스트용
+        raceMembers = cars;
     }
 }

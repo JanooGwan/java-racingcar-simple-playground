@@ -33,4 +33,19 @@ public class RaceGuide {
         return sc.nextInt();
     }
 
+    public void printRaceStatus(List<RacingCar> cars, int tryNum) {
+        if(tryNum == 1) {
+            System.out.println("< 실행 결과 >");
+        }
+
+        System.out.print('\n');
+
+        for(var c : cars) {
+            System.out.println(c.getName() + " : " + "-".repeat(c.getLocation()));
+        }
+    }
+
+    public void printWinners(List<String> cars) {
+        System.out.println("우승자는 " + String.join(", ", cars) + " 입니다.");
+    }
 }

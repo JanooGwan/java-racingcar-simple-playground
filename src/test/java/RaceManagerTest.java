@@ -10,7 +10,7 @@ public class RaceManagerTest {
         rm.joinRacingCar("carB");
         rm.joinRacingCar("carC");
 
-        rm.raceStart();
+        rm.readyRace();
 
         System.out.print("우승자 : ");
         System.out.println(rm.findWinners());
