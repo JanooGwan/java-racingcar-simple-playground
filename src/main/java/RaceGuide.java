@@ -1,3 +1,5 @@
+import Exceptions.TooLongNameException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,17 +21,30 @@ public class RaceGuide {
 
     private List<RacingCar> elaborateString(String str) {
         List<RacingCar> cars = new ArrayList<>();
-        for(var carName : str.split(",")) cars.add(new RacingCar(carName));
+        for(var carName : str.split(",")) {
+            if(carName.isEmpty()) throw new TooLongNameException("비어있는 이름이 있습니다.");
+            if(carName.length() > 5) throw new TooLongNameException("이름은 5자 이하여야 합니다.");
+
+            cars.add(new RacingCar(carName));
+        }
 
         return cars;
     }
 
     private int getTryNum() {
-        sc.nextLine();
         System.out.println("시도할 횟수를 입력해주세요.");
         System.out.print("입력 : ");
 
-        return sc.nextInt();
+        int input;
+
+        try {
+            input = sc.nextInt();
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("숫자만 입력받을 수 있습니다.");
+        }
+
+        return input;
     }
 
     public void printRaceStatus(List<RacingCar> cars, int tryNum) {
@@ -45,6 +60,7 @@ public class RaceGuide {
     }
 
     public void printWinners(List<String> cars) {
+        System.out.print('\n');
         System.out.println("우승자는 " + String.join(", ", cars) + " 입니다.");
     }
 }
